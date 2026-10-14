@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "NO GO - AI YouTube Focus Mode",
+  "version": "1.2",
+  "description": "Filters off-topic YouTube videos based on natural focus goals using Gemini API with PrismTrace analytics.",
+  "permissions": [
+    "storage",
+    "webNavigation",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://prism.blockconvey.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

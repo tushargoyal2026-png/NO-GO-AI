@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 290px; padding: 15px; font-family: sans-serif; background: #121212; color: #fff; margin: 0; }
+    h3 { margin-top: 0; color: #ff4d4d; font-size: 16px; }
+    textarea { width: 100%; height: 50px; margin-bottom: 10px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px; padding: 8px; box-sizing: border-box; resize: none; font-size: 13px; }
+    .input-group { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; font-size: 13px; color: #ccc; }
+    input[type="number"] { width: 70px; padding: 6px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px; text-align: center; }
+    button { width: 100%; padding: 10px; background: #ff4d4d; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 13px; }
+    button:hover { background: #e03e3e; }
+    #btn-stop { background: #334155; margin-top: 8px; }
+    #btn-stop:hover { background: #475569; }
+    #status { margin-top: 10px; font-size: 12px; color: #aaa; text-align: center; }
+    
+    #timer-card { background: #1e293b; border: 1px solid #334155; padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 10px; }
+    .timer-display { font-size: 26px; font-weight: bold; color: #38bdf8; margin: 6px 0; letter-spacing: 1px; }
+    .active-goal { font-size: 12px; color: #94a3b8; word-break: break-word; }
+  </style>
+</head>
+<body>
+  <h3>NO GO Focus Mode</h3>
+
+  <!-- Setup View -->
+  <div id="setup-view">
+    <textarea id="goal-input" placeholder="e.g., Study machine learning without distractions"></textarea>
+    <div class="input-group">
+      <label for="timer-input">Target Duration:</label>
+      <div><input type="number" id="timer-input" value="25" min="1" max="480"> mins</div>
+    </div>
+    <button id="start-btn">Set Focus Goal</button>
+  </div>
+
+  <!-- Active Session Timer View -->
+  <div id="active-view" style="display: none;">
+    <div id="timer-card">
+      <div style="font-size: 11px; color: #cbd5e1; text-transform: uppercase; font-weight: bold;">Focused Time Spent</div>
+      <div id="live-timer" class="timer-display">00:00</div>
+      <div class="active-goal" id="active-goal-text">Goal: Loading...</div>
+    </div>
+    <button id="btn-stop">End Focus Session</button>
+  </div>
+
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
